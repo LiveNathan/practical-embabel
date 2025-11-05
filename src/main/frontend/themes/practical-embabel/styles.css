@@ -1,6 +1,7 @@
 @import url('./main-layout.css');
 @import url('./views/home-view.css');
-@import url('@fontsource/mountains-of-christmas/index.css');    html, spreadsheet-view-export, grid-with-filters-view-export {
+
+html, spreadsheet-view-export, grid-with-filters-view-export {
       --lumo-font-size: 1rem;
       --lumo-font-size-xxxl: 3rem;
       --lumo-font-size-xxl: 2.25rem;

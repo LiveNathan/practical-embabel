@@ -5,5 +5,8 @@
       "files/*" : "@fontsource/mountains-of-christmas/files"
     }
   },
+  "importCss": [
+    "@fontsource/mountains-of-christmas/index.css"
+  ],
   "lumoImports" : [ "typography", "color", "spacing", "badge", "utility" ]
 }
