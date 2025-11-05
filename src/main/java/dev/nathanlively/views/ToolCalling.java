@@ -12,7 +12,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.Route;
 import dev.nathanlively.data.Product;
-import dev.nathanlively.service.ProductService;
+import dev.nathanlively.data.Products;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 
@@ -24,10 +24,10 @@ public class ToolCalling extends HorizontalLayout {
 
     private final ChatClient chatClient;
     private Grid<Product> grid;
-    private final ProductService productService;
+    private final Products products;
 
-    public ToolCalling(AiBuilder builder, ProductService productService) {
-        this.productService = productService;
+    public ToolCalling(AiBuilder builder, Products products) {
+        this.products = products;
         setSizeFull();
         setSpacing(false);
 

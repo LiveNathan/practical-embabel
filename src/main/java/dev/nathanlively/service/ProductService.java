@@ -1,7 +1,6 @@
 package dev.nathanlively.service;
 
 import dev.nathanlively.data.Product;
-import dev.nathanlively.data.ProductRepository;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.stereotype.Service;

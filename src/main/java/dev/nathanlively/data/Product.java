@@ -1,5 +1,7 @@
 package dev.nathanlively.data;
 
+import org.springframework.ai.tool.annotation.Tool;
+
 import java.math.BigDecimal;
 
 public class Product {
@@ -23,6 +25,21 @@ public class Product {
         this.name = name;
         this.description = description;
         this.price = price;
+    }
+
+    @Tool
+    public boolean isAffordableWithin(BigDecimal budget) {
+        return this.price.compareTo(budget) <= 0;
+    }
+
+    @Tool
+    public boolean matches(String searchTerm) {
+        if (searchTerm == null || searchTerm.isBlank()) {
+            return false;
+        }
+        String lower = searchTerm.toLowerCase();
+        return name.toLowerCase().contains(lower) ||
+               description.toLowerCase().contains(lower);
     }
 
     public Long getId() {

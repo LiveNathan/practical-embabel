@@ -1,24 +1,27 @@
-package dev.nathanlively.data;
+package dev.nathanlively.domain;
 
-import jakarta.annotation.PostConstruct;
-import org.springframework.stereotype.Component;
+import dev.nathanlively.data.Product;
+import dev.nathanlively.data.Products;
+import org.springframework.ai.tool.annotation.Tool;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
 
-@Component
-public class ProductDataInitializer {
+public class Data {
+    private final Products products = new Products();
 
-    private final ProductRepository repository;
-
-    public ProductDataInitializer(ProductRepository repository) {
-        this.repository = repository;
+    public Data() {
+        super();
     }
 
-    @PostConstruct
+    public Products products() {
+        return products;
+    }
+
+    @Tool
     public void initProducts() {
         // Initialize in-memory repository with demo products
-        repository.saveAll(Arrays.asList(
+        products.saveAll(Arrays.asList(
                 new Product("Smartphone X12", "Latest flagship smartphone with 6.7-inch OLED display, 128GB storage, and triple camera system.", new BigDecimal("999.99")),
                 new Product("Laptop Pro 15", "Professional laptop with 15-inch Retina display, 16GB RAM, 512GB SSD, and 10-hour battery life.", new BigDecimal("1499.99")),
                 new Product("Wireless Earbuds", "True wireless earbuds with noise cancellation, 24-hour battery life, and water resistance.", new BigDecimal("149.99")),
@@ -41,6 +44,6 @@ public class ProductDataInitializer {
                 new Product("Wireless Mouse", "Ergonomic wireless mouse with adjustable DPI, programmable buttons, and long battery life.", new BigDecimal("59.99"))
         ));
 
-        System.out.println("Initialized in-memory repository with " + repository.count() + " products");
+        System.out.println("Initialized in-memory repository with " + products.count() + " products");
     }
 }
