@@ -13,6 +13,7 @@
     <properties>
         <java.version>25</java.version>
         <vaadin.version>24.9.4</vaadin.version>
+        <embabel-agent.version>0.1.4</embabel-agent.version>
     </properties>
 
     <parent>
@@ -27,6 +28,23 @@
             <url>https://maven.vaadin.com/vaadin-addons</url>
             <snapshots>
                 <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>embabel-releases</id>
+            <url>https://repo.embabel.com/artifactory/libs-release</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>embabel-snapshots</id>
+            <url>https://repo.embabel.com/artifactory/libs-snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
             </snapshots>
         </repository>
     </repositories>
@@ -46,8 +64,7 @@
     <dependencies>
         <dependency>
             <groupId>com.vaadin</groupId>
-            <!-- Replace artifactId with vaadin-core to use only free components -->
-            <artifactId>vaadin</artifactId>
+            <artifactId>vaadin-core</artifactId>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
@@ -58,16 +75,25 @@
             <artifactId>line-awesome</artifactId>
             <version>2.1.0</version>
         </dependency>
-
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
+            <groupId>com.embabel.agent</groupId>
+            <artifactId>embabel-agent-starter</artifactId>
+            <version>${embabel-agent.version}</version>
         </dependency>
-
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <groupId>com.embabel.agent</groupId>
+            <artifactId>embabel-agent-starter-openai</artifactId>
+            <version>${embabel-agent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.embabel.agent</groupId>
+            <artifactId>embabel-agent-starter-ollama</artifactId>
+            <version>${embabel-agent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jspecify</groupId>
+            <artifactId>jspecify</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>
@@ -109,7 +135,6 @@
                             <file>${project.basedir}/eclipse-formatter.xml</file>
                         </eclipse>
                     </java>
-                    <!-- Uncomment to format TypeScript files 
                         <typescript>
                         <includes>
                             <include>src/main/frontend/**/*.ts</include>
@@ -123,7 +148,6 @@
                             <configFile>.prettierrc.json</configFile>
                         </prettier>
                     </typescript>
-                -->
                 </configuration>
             </plugin>
             <plugin>
