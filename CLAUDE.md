@@ -104,7 +104,7 @@ See BasicCall.java:41-43 for reference implementation.
 
 ### Environment Variables
 
-Required in `.env` (note: this file is already staged in git - be careful):
+Required in `.env` (gitignored, contains sensitive API keys):
 
 - `OPENAI_API_KEY`: OpenAI API key for AI functionality
 - `GEMINI_API_KEY`: Google Gemini API key (if using Gemini)
