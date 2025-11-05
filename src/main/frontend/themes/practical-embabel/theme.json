@@ -1,0 +1,9 @@
+{
+  "assets" : {
+    "@fontsource/mountains-of-christmas" : {
+      "*.css" : "@fontsource/mountains-of-christmas",
+      "files/*" : "@fontsource/mountains-of-christmas/files"
+    }
+  },
+  "lumoImports" : [ "typography", "color", "spacing", "badge", "utility" ]
+}
